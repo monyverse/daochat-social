@@ -1,3 +1,4 @@
+import 'package:app/core/application/auth/auth_bloc.dart';
 import 'package:app/core/application/chat/chat_list_bloc/chat_list_bloc.dart';
 import 'package:app/core/application/chat/chat_space_bloc/chat_space_bloc.dart';
 import 'package:app/core/application/chat/get_guild_rooms_bloc/get_guild_rooms_bloc.dart';
@@ -17,6 +18,15 @@ class ChatListPage extends StatefulWidget {
 class _ChatListPageState extends State<ChatListPage> {
   @override
   Widget build(BuildContext context) {
+    final isLoggedIn = context.watch<AuthBloc>().state.maybeWhen(
+          authenticated: (_) => true,
+          orElse: () => false,
+        );
+    if (!isLoggedIn) {
+      return const Scaffold(
+        body: SizedBox.shrink(),
+      );
+    }
     return BlocBuilder<ChatSpaceBloc, ChatSpaceState>(
       builder: (context, chatSpaceState) {
         return MultiBlocProvider(

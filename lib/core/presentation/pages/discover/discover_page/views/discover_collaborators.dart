@@ -7,17 +7,16 @@ import 'package:app/graphql/backend/schema.graphql.dart';
 import 'package:app/theme/spacing.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:graphql_flutter/graphql_flutter.dart';
 
 class DiscoverCollaborators extends StatelessWidget {
   const DiscoverCollaborators({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final loggedInUserId = context
-        .watch<AuthBloc>()
-        .state
-        .maybeWhen(orElse: () => '', authenticated: (user) => user.userId);
+    final loggedInUserId = context.watch<AuthBloc>().state.maybeWhen(
+          orElse: () => '',
+          authenticated: (user) => user.userId,
+        );
     if (loggedInUserId.isEmpty) {
       return const SliverToBoxAdapter(
         child: SizedBox.shrink(),
@@ -25,7 +24,6 @@ class DiscoverCollaborators extends StatelessWidget {
     }
     return Query$GetUserDiscoverySwipes$Widget(
       options: Options$Query$GetUserDiscoverySwipes(
-        fetchPolicy: FetchPolicy.networkOnly,
         variables: Variables$Query$GetUserDiscoverySwipes(
           skip: 0,
           limit: 100,

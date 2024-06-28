@@ -1,3 +1,4 @@
+import 'package:app/core/application/auth/auth_bloc.dart';
 import 'package:app/core/application/event/events_listing_bloc/base_events_listing_bloc.dart';
 import 'package:app/core/application/event/events_listing_bloc/home_events_listing_bloc.dart';
 import 'package:app/core/domain/event/event_repository.dart';
@@ -26,6 +27,15 @@ class DiscoverUpcomingEvents extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = Translations.of(context);
     final colorScheme = Theme.of(context).colorScheme;
+    final isLoggedIn = context.watch<AuthBloc>().state.maybeWhen(
+          authenticated: (_) => true,
+          orElse: () => false,
+        );
+    if (!isLoggedIn) {
+      return const SliverToBoxAdapter(
+        child: SizedBox.shrink(),
+      );
+    }
     return MultiSliver(
       children: [
         SliverPadding(

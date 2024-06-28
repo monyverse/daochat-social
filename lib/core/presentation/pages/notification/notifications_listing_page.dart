@@ -1,3 +1,4 @@
+import 'package:app/core/application/auth/auth_bloc.dart';
 import 'package:app/core/application/notification/notifications_listing_bloc.dart';
 import 'package:app/core/domain/notification/entities/notification.dart'
     as entities;
@@ -18,9 +19,18 @@ class NotificationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isLoggedIn = context.watch<AuthBloc>().state.maybeWhen(
+          authenticated: (_) => true,
+          orElse: () => false,
+        );
     return BlocProvider<NotificationsListingBloc>(
-      create: (context) =>
-          NotificationsListingBloc()..add(NotificationsListingEvent.fetch()),
+      create: (context) {
+        if (!isLoggedIn) {
+          return NotificationsListingBloc();
+        }
+        return NotificationsListingBloc()
+          ..add(NotificationsListingEvent.fetch());
+      },
       child: const _NotificationsListingView(),
     );
   }

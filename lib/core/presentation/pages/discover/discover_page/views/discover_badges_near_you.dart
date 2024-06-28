@@ -1,3 +1,4 @@
+import 'package:app/core/application/auth/auth_bloc.dart';
 import 'package:app/core/application/badge/badge_near_you_bloc/badge_near_you_bloc.dart';
 import 'package:app/core/presentation/widgets/common/list/empty_list_widget.dart';
 import 'package:app/core/presentation/widgets/loading_widget.dart';
@@ -18,6 +19,16 @@ class DiscoverBadgesNearYou extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isLoggedIn = context.watch<AuthBloc>().state.maybeWhen(
+          authenticated: (_) => true,
+          orElse: () => false,
+        );
+    if (!isLoggedIn) {
+      return const SliverToBoxAdapter(
+        child: SizedBox.shrink(),
+      );
+    }
+
     return FutureBuilder<bool>(
       future: Future(() async {
         await Future.delayed(const Duration(milliseconds: 500));
@@ -31,10 +42,15 @@ class DiscoverBadgesNearYou extends StatelessWidget {
           final hasLocationAccess = snapshot.data!;
           if (hasLocationAccess) {
             return BlocProvider(
-              create: (context) => BadgesNearYouBloc()
-                ..add(
-                  BadgesNearYouEvent.fetch(),
-                ),
+              create: (context) {
+                if (!isLoggedIn) {
+                  return BadgesNearYouBloc();
+                }
+                return BadgesNearYouBloc()
+                  ..add(
+                    BadgesNearYouEvent.fetch(),
+                  );
+              },
               child: const _DiscoverBadgesNearYouView(),
             );
           }
