@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.30.0](https://github.com/lemonadesocial/lemonade-flutter/compare/v1.29.0...v1.30.0) (2024-08-07)
+
+
+### Features
+
+* add google wallet ticket ([#689](https://github.com/lemonadesocial/lemonade-flutter/issues/689)) ([9a08845](https://github.com/lemonadesocial/lemonade-flutter/commit/9a0884589bb19f712b84edc5695282d2365d8686))
+* create event with tags ([#686](https://github.com/lemonadesocial/lemonade-flutter/issues/686)) ([352f687](https://github.com/lemonadesocial/lemonade-flutter/commit/352f687c4cc0655e46ffcd5771048e7c81a8b7ea))
+* implement create sub event ([#684](https://github.com/lemonadesocial/lemonade-flutter/issues/684)) ([42e603f](https://github.com/lemonadesocial/lemonade-flutter/commit/42e603f5a6642cbc820e8eca67ef5512c463e234))
+* sub event filter bottomsheet ([#693](https://github.com/lemonadesocial/lemonade-flutter/issues/693)) ([b00aeab](https://github.com/lemonadesocial/lemonade-flutter/commit/b00aeab751715c0b807bb96b8132a358beba56d9))
+* sub event new ui updated ([#690](https://github.com/lemonadesocial/lemonade-flutter/issues/690)) ([9d5e301](https://github.com/lemonadesocial/lemonade-flutter/commit/9d5e30158912d5f75858a91548046636e942ea85))
+* ticket apple wallet ([#688](https://github.com/lemonadesocial/lemonade-flutter/issues/688)) ([5d9159a](https://github.com/lemonadesocial/lemonade-flutter/commit/5d9159a0b9bad27bdbf197b3c7bcf807a4b264c7))
+* UI flow for team members setting listing  ([#687](https://github.com/lemonadesocial/lemonade-flutter/issues/687)) ([55c054e](https://github.com/lemonadesocial/lemonade-flutter/commit/55c054ecaf36115b7311ec15fbc653f797a1aae5))
+
+
+### Bug Fixes
+
+* quest UI polishment ([#694](https://github.com/lemonadesocial/lemonade-flutter/issues/694)) ([c08ed9c](https://github.com/lemonadesocial/lemonade-flutter/commit/c08ed9c72a27f3bb89d10e3f572acef9305e3a69))
+* re-add application form setting ([#692](https://github.com/lemonadesocial/lemonade-flutter/issues/692)) ([7e622e0](https://github.com/lemonadesocial/lemonade-flutter/commit/7e622e064be5850f479c5be49376a0139a7d4c10))
+* update web3modal flutter lib ([#691](https://github.com/lemonadesocial/lemonade-flutter/issues/691)) ([cb0ff11](https://github.com/lemonadesocial/lemonade-flutter/commit/cb0ff117a24d6f646acef678c9b58eec4b75dfbb))
+
 ## [1.29.0](https://github.com/lemonadesocial/lemonade-flutter/compare/v1.28.0...v1.29.0) (2024-07-18)
 
 
