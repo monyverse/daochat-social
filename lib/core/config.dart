@@ -92,6 +92,6 @@ class AppConfig {
   // Crypto cramp
   static get stripeOnrampHost => dotenv.env['STRIPE_ONRAMP_HOST'];
 
-  // Sentry DSN
+  // Se
   static get sentryDsn => dotenv.env['SENTRY_DSN'];
 }
