@@ -189,6 +189,9 @@ dev_dependencies:
 
   # crash analytics
   sentry_dart_plugin: ^1.7.1
+  bdd_widget_test: ^1.2.1
+  flutter_driver:
+    sdk: flutter
 
 # generate asset
 flutter_gen:
