@@ -1,5 +1,5 @@
 name: app
-description: Lemonade Social App
+description: Daochat Social App
 publish_to: "none"
 version: 1.29.0
 
@@ -266,6 +266,6 @@ sentry:
   upload_debug_symbols: true
   upload_source_maps: false
   upload_sources: false
-  project: lemonade-flutter
-  org: lemonadesocial
+  project: daochat-flutter
+  org: daochat
   auth_token: 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
